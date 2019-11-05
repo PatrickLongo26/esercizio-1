@@ -10,4 +10,7 @@ import{Contatto} from './contatto.model';
 export class ContattoComponent {
   contatto: Contatto = new Contatto("Patrick", "Longo","patrick.longo@marconirovereto.it", "12345678", 5);
 
+  setTextColor(){
+    return this.contatto.isPreferito()? "red": "black";
+  }
 }

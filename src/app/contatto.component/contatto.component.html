@@ -1,7 +1,10 @@
 <div class='container'>
 	<div class="container">
-		<p class="lead">{{contatto.getNomeCompleto()}}
-    <img *ngIf="contatto.nrStelle >= 4" class="stella" src="https://cdn.icon-icons.com/icons2/1077/PNG/512/star_77949.png">
+		<p class="lead" [ngStyle]="{'color': setTextColor()}">{{contatto.getNomeCompleto()}}
+    <img *ngIf="contatto.isPreferito(); else btnPreferito" class="stella" src="https://cdn.icon-icons.com/icons2/1077/PNG/512/star_77949.png">
+    <ng-template #btnPreferito>
+      <button class="btn btn-primary btn-sm" (click)="contatto.setPreferito()">Preferito</button>
+    </ng-template>
 		</p>
     <div class="row">
 			<div class="col-sm-3">
@@ -9,39 +12,39 @@
 			</div>
 			<div class="coll-sm-9">
 				<input type="text" [(ngModel)]="contatto.nome">
-  </div>
+      </div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3">
+				<p>Cognome:</p>
 			</div>
-			<div class="row">
-				<div class="col-sm-3">
-					<p>Cognome:</p>
-				</div>
-				<div class="coll-sm-9">
-					<input type="text" [(ngModel)]="contatto.cognome">
-  </div>
-				</div>
-				<div class="row">
-					<div class="col-sm-3">
-						<p>E-mail:</p>
-					</div>
-					<div class="coll-sm-9">
-						<input type="text" [(ngModel)]="contatto.mail">
-  </div>
-					</div>
-					<div class="row">
-						<div class="col-sm-3">
-							<p>Numero:</p>
-						</div>
-						<div class="coll-sm-9">
-							<input type="text" [(ngModel)]="contatto.cell">
-  </div>
-						</div>
-						<div class="row">
-							<div class="col-sm-3">
-								<p>Stelle:</p>
-							</div>
-							<div class="coll-sm-9">
-								<input type="text" [(ngModel)]="contatto.nrStelle">
-  </div>
-							</div>
-						</div>
-					</div>
+			<div class="coll-sm-9">
+				<input type="text" [(ngModel)]="contatto.cognome">
+      </div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3">
+				<p>E-mail:</p>
+			</div>
+			<div class="coll-sm-9">
+				<input type="text" [(ngModel)]="contatto.mail">
+      </div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3">
+				<p>Numero:</p>
+			</div>
+			<div class="coll-sm-9">
+				<input type="text" [(ngModel)]="contatto.cell">
+      </div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3">
+				<p>Stelle:</p>
+			</div>
+			<div class="coll-sm-9">
+				<input type="text" [(ngModel)]="contatto.nrStelle">
+      </div>
+		</div>
+	</div>
+</div>
